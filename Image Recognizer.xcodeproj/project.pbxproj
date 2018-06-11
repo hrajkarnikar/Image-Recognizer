@@ -54,14 +54,46 @@
 		717C6F5520CE777000BD40EF /* Image Recognizer */ = {
 			isa = PBXGroup;
 			children = (
+				717C6F6B20CE77AF00BD40EF /* Supporting Files */,
+				717C6F6A20CE779900BD40EF /* View */,
+				717C6F6920CE779200BD40EF /* Controller */,
+				717C6F6820CE777C00BD40EF /* Model */,
 				717C6F5620CE777000BD40EF /* AppDelegate.swift */,
-				717C6F5820CE777000BD40EF /* ViewController.swift */,
-				717C6F5A20CE777000BD40EF /* Main.storyboard */,
-				717C6F5D20CE777200BD40EF /* Assets.xcassets */,
-				717C6F5F20CE777200BD40EF /* LaunchScreen.storyboard */,
 				717C6F6220CE777200BD40EF /* Info.plist */,
 			);
 			path = "Image Recognizer";
+			sourceTree = "<group>";
+		};
+		717C6F6820CE777C00BD40EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		717C6F6920CE779200BD40EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				717C6F5820CE777000BD40EF /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		717C6F6A20CE779900BD40EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				717C6F5A20CE777000BD40EF /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		717C6F6B20CE77AF00BD40EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				717C6F5F20CE777200BD40EF /* LaunchScreen.storyboard */,
+				717C6F5D20CE777200BD40EF /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -31,10 +31,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let userPickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView.image = userPickedImage
+            
+            guard let convertedImage = CIImage(image: userPickedImage) else {
+                fatalError("Could not convert UIImage to CIImage")
+            }
+            
+            detect(image: convertedImage)
         }
         
         imagePicker.dismiss(animated: true, completion: nil)
         
+    }
+    
+    func detect(image: CIImage) {
+        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else {
+            fatalError("Loading core model failed")
+        }
+        
+        let request = VNCoreMLRequest(model: model) { (request, error) in
+            guard let result = request.results as? [VNClassificationObservation] else {
+                fatalError("Model failed to process image")
+            }
+            print(result)
+            if let firstResult = result.first {
+                self.navigationItem.title = firstResult.identifier.capitalized
+            }
+        }
+        
+        let handler = VNImageRequestHandler(ciImage: image)
+        
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error)
+        }
     }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
